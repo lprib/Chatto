@@ -4,18 +4,68 @@ package chatto;
 
 option csharp_namespace = "Proto";
 
-message ChatToServer {
-	string text = 1;
+//server to client:
+//=================
+message MessageFromServer {
+	//data
+	oneof message {
+		Chat chat_from_server = 1;
+		Error error = 2;
+		UserAction user_join_leave = 3;
+	}
+
+	//time in ticks
+	uint64 time = 15;
+
+	//inner types
+	message Chat {
+		string text = 1;
+		string name = 2;
+		string trip = 3;
+	}
+
+	enum Error {
+		NAME_TAKEN = 0;
+		NAME_INVALID = 1;
+		RATE_LIMIT = 2;
+	}
+
+	//when another user does something
+	message UserAction {
+		ActionType action_type = 1;
+		string name = 2;
+
+		enum ActionType {
+			JOIN = 0;
+			LEAVE = 1;
+		}
+	}
 }
 
-message ChatFromServer {
-	string text = 1;
-	string name = 2;
-	string trip = 3;
+//server's resonse to a join, giving info about the room
+message JoinResponse {
+	repeated string online_users = 1;
 }
 
+//client to server:
+//=================
 message Join {
 	string room = 1;
 	string name = 2;
 	string password = 3;
+}
+
+message MessageToServer {
+	//data
+	oneof message {
+		Chat chat_to_server = 1;
+	}
+
+	//time in ticks
+	uint64 time = 15;
+
+	//inner types
+	message Chat {
+		string text = 1;
+	}
 }

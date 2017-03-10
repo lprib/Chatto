@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Google.Protobuf;
 using Proto;
 
@@ -28,15 +24,39 @@ namespace Client
                 ws.Send(join.ToByteArray());
             };
 
-            ws.OnMessage += (o, args) => Console.WriteLine(ChatFromServer.Parser.ParseFrom(args.RawData).ToString());
+            //TODO handle joinResponse messages
+            ws.OnMessage += (o, args) =>
+            {
+                var message = MessageFromServer.Parser.ParseFrom(args.RawData);
+                switch (message.MessageCase)
+                {
+                    case MessageFromServer.MessageOneofCase.ChatFromServer:
+                        var chat = message.ChatFromServer;
+                        Console.WriteLine($"{chat.Name} {chat.Trip} : {chat.Text}");
+                        break;
+                    case MessageFromServer.MessageOneofCase.Error:
+                        Console.WriteLine(message.Error.ToString());
+                        break;
+                    case MessageFromServer.MessageOneofCase.UserJoinLeave:
+                        Console.WriteLine(message.UserJoinLeave.Name +
+                                          (message.UserJoinLeave.ActionType ==
+                                           MessageFromServer.Types.UserAction.Types.ActionType.Join
+                                              ? " joined."
+                                              : " left."));
+                        break;
+                }
+            };
 
             ws.Connect();
 
             while (true)
             {
-                var chat = new ChatToServer
+                var chat = new MessageToServer()
                 {
-                    Text = Prompt("")
+                    ChatToServer = new MessageToServer.Types.Chat
+                    {
+                        Text = Prompt(">"),
+                    }
                 };
                 ws.Send(chat.ToByteArray());
             }

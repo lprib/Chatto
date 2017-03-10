@@ -22,27 +22,45 @@ namespace Proto {
     static ChattoProtoReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChJjaGF0dG9fcHJvdG8ucHJvdG8SBmNoYXR0byIcCgxDaGF0VG9TZXJ2ZXIS",
-            "DAoEdGV4dBgBIAEoCSI6Cg5DaGF0RnJvbVNlcnZlchIMCgR0ZXh0GAEgASgJ",
-            "EgwKBG5hbWUYAiABKAkSDAoEdHJpcBgDIAEoCSI0CgRKb2luEgwKBHJvb20Y",
-            "ASABKAkSDAoEbmFtZRgCIAEoCRIQCghwYXNzd29yZBgDIAEoCUIIqgIFUHJv",
-            "dG9iBnByb3RvMw=="));
+            "ChJjaGF0dG9fcHJvdG8ucHJvdG8SBmNoYXR0byLOAwoRTWVzc2FnZUZyb21T",
+            "ZXJ2ZXISOgoQY2hhdF9mcm9tX3NlcnZlchgBIAEoCzIeLmNoYXR0by5NZXNz",
+            "YWdlRnJvbVNlcnZlci5DaGF0SAASMAoFZXJyb3IYAiABKA4yHy5jaGF0dG8u",
+            "TWVzc2FnZUZyb21TZXJ2ZXIuRXJyb3JIABI/Cg91c2VyX2pvaW5fbGVhdmUY",
+            "AyABKAsyJC5jaGF0dG8uTWVzc2FnZUZyb21TZXJ2ZXIuVXNlckFjdGlvbkgA",
+            "EgwKBHRpbWUYDyABKAQaMAoEQ2hhdBIMCgR0ZXh0GAEgASgJEgwKBG5hbWUY",
+            "AiABKAkSDAoEdHJpcBgDIAEoCRqDAQoKVXNlckFjdGlvbhJECgthY3Rpb25f",
+            "dHlwZRgBIAEoDjIvLmNoYXR0by5NZXNzYWdlRnJvbVNlcnZlci5Vc2VyQWN0",
+            "aW9uLkFjdGlvblR5cGUSDAoEbmFtZRgCIAEoCSIhCgpBY3Rpb25UeXBlEggK",
+            "BEpPSU4QABIJCgVMRUFWRRABIjkKBUVycm9yEg4KCk5BTUVfVEFLRU4QABIQ",
+            "CgxOQU1FX0lOVkFMSUQQARIOCgpSQVRFX0xJTUlUEAJCCQoHbWVzc2FnZSIk",
+            "CgxKb2luUmVzcG9uc2USFAoMb25saW5lX3VzZXJzGAEgAygJIjQKBEpvaW4S",
+            "DAoEcm9vbRgBIAEoCRIMCgRuYW1lGAIgASgJEhAKCHBhc3N3b3JkGAMgASgJ",
+            "IngKD01lc3NhZ2VUb1NlcnZlchI2Cg5jaGF0X3RvX3NlcnZlchgBIAEoCzIc",
+            "LmNoYXR0by5NZXNzYWdlVG9TZXJ2ZXIuQ2hhdEgAEgwKBHRpbWUYDyABKAQa",
+            "FAoEQ2hhdBIMCgR0ZXh0GAEgASgJQgkKB21lc3NhZ2VCCKoCBVByb3RvYgZw",
+            "cm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.ChatToServer), global::Proto.ChatToServer.Parser, new[]{ "Text" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.ChatFromServer), global::Proto.ChatFromServer.Parser, new[]{ "Text", "Name", "Trip" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.Join), global::Proto.Join.Parser, new[]{ "Room", "Name", "Password" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.MessageFromServer), global::Proto.MessageFromServer.Parser, new[]{ "ChatFromServer", "Error", "UserJoinLeave", "Time" }, new[]{ "Message" }, new[]{ typeof(global::Proto.MessageFromServer.Types.Error) }, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Proto.MessageFromServer.Types.Chat), global::Proto.MessageFromServer.Types.Chat.Parser, new[]{ "Text", "Name", "Trip" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.MessageFromServer.Types.UserAction), global::Proto.MessageFromServer.Types.UserAction.Parser, new[]{ "ActionType", "Name" }, null, new[]{ typeof(global::Proto.MessageFromServer.Types.UserAction.Types.ActionType) }, null)}),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.JoinResponse), global::Proto.JoinResponse.Parser, new[]{ "OnlineUsers" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.Join), global::Proto.Join.Parser, new[]{ "Room", "Name", "Password" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.MessageToServer), global::Proto.MessageToServer.Parser, new[]{ "ChatToServer", "Time" }, new[]{ "Message" }, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Proto.MessageToServer.Types.Chat), global::Proto.MessageToServer.Types.Chat.Parser, new[]{ "Text" }, null, null, null)})
           }));
     }
     #endregion
 
   }
   #region Messages
-  public sealed partial class ChatToServer : pb::IMessage<ChatToServer> {
-    private static readonly pb::MessageParser<ChatToServer> _parser = new pb::MessageParser<ChatToServer>(() => new ChatToServer());
+  /// <summary>
+  /// server to client:
+  /// =================
+  /// </summary>
+  public sealed partial class MessageFromServer : pb::IMessage<MessageFromServer> {
+    private static readonly pb::MessageParser<MessageFromServer> _parser = new pb::MessageParser<MessageFromServer>(() => new MessageFromServer());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<ChatToServer> Parser { get { return _parser; } }
+    public static pb::MessageParser<MessageFromServer> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -55,54 +73,130 @@ namespace Proto {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ChatToServer() {
+    public MessageFromServer() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ChatToServer(ChatToServer other) : this() {
-      text_ = other.text_;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ChatToServer Clone() {
-      return new ChatToServer(this);
-    }
-
-    /// <summary>Field number for the "text" field.</summary>
-    public const int TextFieldNumber = 1;
-    private string text_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Text {
-      get { return text_; }
-      set {
-        text_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+    public MessageFromServer(MessageFromServer other) : this() {
+      time_ = other.time_;
+      switch (other.MessageCase) {
+        case MessageOneofCase.ChatFromServer:
+          ChatFromServer = other.ChatFromServer.Clone();
+          break;
+        case MessageOneofCase.Error:
+          Error = other.Error;
+          break;
+        case MessageOneofCase.UserJoinLeave:
+          UserJoinLeave = other.UserJoinLeave.Clone();
+          break;
       }
+
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public MessageFromServer Clone() {
+      return new MessageFromServer(this);
+    }
+
+    /// <summary>Field number for the "chat_from_server" field.</summary>
+    public const int ChatFromServerFieldNumber = 1;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Proto.MessageFromServer.Types.Chat ChatFromServer {
+      get { return messageCase_ == MessageOneofCase.ChatFromServer ? (global::Proto.MessageFromServer.Types.Chat) message_ : null; }
+      set {
+        message_ = value;
+        messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.ChatFromServer;
+      }
+    }
+
+    /// <summary>Field number for the "error" field.</summary>
+    public const int ErrorFieldNumber = 2;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Proto.MessageFromServer.Types.Error Error {
+      get { return messageCase_ == MessageOneofCase.Error ? (global::Proto.MessageFromServer.Types.Error) message_ : 0; }
+      set {
+        message_ = value;
+        messageCase_ = MessageOneofCase.Error;
+      }
+    }
+
+    /// <summary>Field number for the "user_join_leave" field.</summary>
+    public const int UserJoinLeaveFieldNumber = 3;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Proto.MessageFromServer.Types.UserAction UserJoinLeave {
+      get { return messageCase_ == MessageOneofCase.UserJoinLeave ? (global::Proto.MessageFromServer.Types.UserAction) message_ : null; }
+      set {
+        message_ = value;
+        messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.UserJoinLeave;
+      }
+    }
+
+    /// <summary>Field number for the "time" field.</summary>
+    public const int TimeFieldNumber = 15;
+    private ulong time_;
+    /// <summary>
+    /// time in ticks
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong Time {
+      get { return time_; }
+      set {
+        time_ = value;
+      }
+    }
+
+    private object message_;
+    /// <summary>Enum of possible cases for the "message" oneof.</summary>
+    public enum MessageOneofCase {
+      None = 0,
+      ChatFromServer = 1,
+      Error = 2,
+      UserJoinLeave = 3,
+    }
+    private MessageOneofCase messageCase_ = MessageOneofCase.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public MessageOneofCase MessageCase {
+      get { return messageCase_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void ClearMessage() {
+      messageCase_ = MessageOneofCase.None;
+      message_ = null;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as ChatToServer);
+      return Equals(other as MessageFromServer);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(ChatToServer other) {
+    public bool Equals(MessageFromServer other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Text != other.Text) return false;
+      if (!object.Equals(ChatFromServer, other.ChatFromServer)) return false;
+      if (Error != other.Error) return false;
+      if (!object.Equals(UserJoinLeave, other.UserJoinLeave)) return false;
+      if (Time != other.Time) return false;
+      if (MessageCase != other.MessageCase) return false;
       return true;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Text.Length != 0) hash ^= Text.GetHashCode();
+      if (messageCase_ == MessageOneofCase.ChatFromServer) hash ^= ChatFromServer.GetHashCode();
+      if (messageCase_ == MessageOneofCase.Error) hash ^= Error.GetHashCode();
+      if (messageCase_ == MessageOneofCase.UserJoinLeave) hash ^= UserJoinLeave.GetHashCode();
+      if (Time != 0UL) hash ^= Time.GetHashCode();
+      hash ^= (int) messageCase_;
       return hash;
     }
 
@@ -113,29 +207,62 @@ namespace Proto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Text.Length != 0) {
+      if (messageCase_ == MessageOneofCase.ChatFromServer) {
         output.WriteRawTag(10);
-        output.WriteString(Text);
+        output.WriteMessage(ChatFromServer);
+      }
+      if (messageCase_ == MessageOneofCase.Error) {
+        output.WriteRawTag(16);
+        output.WriteEnum((int) Error);
+      }
+      if (messageCase_ == MessageOneofCase.UserJoinLeave) {
+        output.WriteRawTag(26);
+        output.WriteMessage(UserJoinLeave);
+      }
+      if (Time != 0UL) {
+        output.WriteRawTag(120);
+        output.WriteUInt64(Time);
       }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Text.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Text);
+      if (messageCase_ == MessageOneofCase.ChatFromServer) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ChatFromServer);
+      }
+      if (messageCase_ == MessageOneofCase.Error) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Error);
+      }
+      if (messageCase_ == MessageOneofCase.UserJoinLeave) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(UserJoinLeave);
+      }
+      if (Time != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Time);
       }
       return size;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(ChatToServer other) {
+    public void MergeFrom(MessageFromServer other) {
       if (other == null) {
         return;
       }
-      if (other.Text.Length != 0) {
-        Text = other.Text;
+      if (other.Time != 0UL) {
+        Time = other.Time;
       }
+      switch (other.MessageCase) {
+        case MessageOneofCase.ChatFromServer:
+          ChatFromServer = other.ChatFromServer;
+          break;
+        case MessageOneofCase.Error:
+          Error = other.Error;
+          break;
+        case MessageOneofCase.UserJoinLeave:
+          UserJoinLeave = other.UserJoinLeave;
+          break;
+      }
+
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -147,19 +274,394 @@ namespace Proto {
             input.SkipLastField();
             break;
           case 10: {
-            Text = input.ReadString();
+            global::Proto.MessageFromServer.Types.Chat subBuilder = new global::Proto.MessageFromServer.Types.Chat();
+            if (messageCase_ == MessageOneofCase.ChatFromServer) {
+              subBuilder.MergeFrom(ChatFromServer);
+            }
+            input.ReadMessage(subBuilder);
+            ChatFromServer = subBuilder;
+            break;
+          }
+          case 16: {
+            message_ = input.ReadEnum();
+            messageCase_ = MessageOneofCase.Error;
+            break;
+          }
+          case 26: {
+            global::Proto.MessageFromServer.Types.UserAction subBuilder = new global::Proto.MessageFromServer.Types.UserAction();
+            if (messageCase_ == MessageOneofCase.UserJoinLeave) {
+              subBuilder.MergeFrom(UserJoinLeave);
+            }
+            input.ReadMessage(subBuilder);
+            UserJoinLeave = subBuilder;
+            break;
+          }
+          case 120: {
+            Time = input.ReadUInt64();
             break;
           }
         }
       }
     }
 
+    #region Nested types
+    /// <summary>Container for nested types declared in the MessageFromServer message type.</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static partial class Types {
+      public enum Error {
+        [pbr::OriginalName("NAME_TAKEN")] NameTaken = 0,
+        [pbr::OriginalName("NAME_INVALID")] NameInvalid = 1,
+        [pbr::OriginalName("RATE_LIMIT")] RateLimit = 2,
+      }
+
+      /// <summary>
+      /// inner types
+      /// </summary>
+      public sealed partial class Chat : pb::IMessage<Chat> {
+        private static readonly pb::MessageParser<Chat> _parser = new pb::MessageParser<Chat>(() => new Chat());
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public static pb::MessageParser<Chat> Parser { get { return _parser; } }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public static pbr::MessageDescriptor Descriptor {
+          get { return global::Proto.MessageFromServer.Descriptor.NestedTypes[0]; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        pbr::MessageDescriptor pb::IMessage.Descriptor {
+          get { return Descriptor; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public Chat() {
+          OnConstruction();
+        }
+
+        partial void OnConstruction();
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public Chat(Chat other) : this() {
+          text_ = other.text_;
+          name_ = other.name_;
+          trip_ = other.trip_;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public Chat Clone() {
+          return new Chat(this);
+        }
+
+        /// <summary>Field number for the "text" field.</summary>
+        public const int TextFieldNumber = 1;
+        private string text_ = "";
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public string Text {
+          get { return text_; }
+          set {
+            text_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+          }
+        }
+
+        /// <summary>Field number for the "name" field.</summary>
+        public const int NameFieldNumber = 2;
+        private string name_ = "";
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public string Name {
+          get { return name_; }
+          set {
+            name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+          }
+        }
+
+        /// <summary>Field number for the "trip" field.</summary>
+        public const int TripFieldNumber = 3;
+        private string trip_ = "";
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public string Trip {
+          get { return trip_; }
+          set {
+            trip_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+          }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override bool Equals(object other) {
+          return Equals(other as Chat);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public bool Equals(Chat other) {
+          if (ReferenceEquals(other, null)) {
+            return false;
+          }
+          if (ReferenceEquals(other, this)) {
+            return true;
+          }
+          if (Text != other.Text) return false;
+          if (Name != other.Name) return false;
+          if (Trip != other.Trip) return false;
+          return true;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override int GetHashCode() {
+          int hash = 1;
+          if (Text.Length != 0) hash ^= Text.GetHashCode();
+          if (Name.Length != 0) hash ^= Name.GetHashCode();
+          if (Trip.Length != 0) hash ^= Trip.GetHashCode();
+          return hash;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override string ToString() {
+          return pb::JsonFormatter.ToDiagnosticString(this);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void WriteTo(pb::CodedOutputStream output) {
+          if (Text.Length != 0) {
+            output.WriteRawTag(10);
+            output.WriteString(Text);
+          }
+          if (Name.Length != 0) {
+            output.WriteRawTag(18);
+            output.WriteString(Name);
+          }
+          if (Trip.Length != 0) {
+            output.WriteRawTag(26);
+            output.WriteString(Trip);
+          }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public int CalculateSize() {
+          int size = 0;
+          if (Text.Length != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeStringSize(Text);
+          }
+          if (Name.Length != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+          }
+          if (Trip.Length != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeStringSize(Trip);
+          }
+          return size;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void MergeFrom(Chat other) {
+          if (other == null) {
+            return;
+          }
+          if (other.Text.Length != 0) {
+            Text = other.Text;
+          }
+          if (other.Name.Length != 0) {
+            Name = other.Name;
+          }
+          if (other.Trip.Length != 0) {
+            Trip = other.Trip;
+          }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void MergeFrom(pb::CodedInputStream input) {
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                input.SkipLastField();
+                break;
+              case 10: {
+                Text = input.ReadString();
+                break;
+              }
+              case 18: {
+                Name = input.ReadString();
+                break;
+              }
+              case 26: {
+                Trip = input.ReadString();
+                break;
+              }
+            }
+          }
+        }
+
+      }
+
+      /// <summary>
+      /// when another user does something
+      /// </summary>
+      public sealed partial class UserAction : pb::IMessage<UserAction> {
+        private static readonly pb::MessageParser<UserAction> _parser = new pb::MessageParser<UserAction>(() => new UserAction());
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public static pb::MessageParser<UserAction> Parser { get { return _parser; } }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public static pbr::MessageDescriptor Descriptor {
+          get { return global::Proto.MessageFromServer.Descriptor.NestedTypes[1]; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        pbr::MessageDescriptor pb::IMessage.Descriptor {
+          get { return Descriptor; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public UserAction() {
+          OnConstruction();
+        }
+
+        partial void OnConstruction();
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public UserAction(UserAction other) : this() {
+          actionType_ = other.actionType_;
+          name_ = other.name_;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public UserAction Clone() {
+          return new UserAction(this);
+        }
+
+        /// <summary>Field number for the "action_type" field.</summary>
+        public const int ActionTypeFieldNumber = 1;
+        private global::Proto.MessageFromServer.Types.UserAction.Types.ActionType actionType_ = 0;
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public global::Proto.MessageFromServer.Types.UserAction.Types.ActionType ActionType {
+          get { return actionType_; }
+          set {
+            actionType_ = value;
+          }
+        }
+
+        /// <summary>Field number for the "name" field.</summary>
+        public const int NameFieldNumber = 2;
+        private string name_ = "";
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public string Name {
+          get { return name_; }
+          set {
+            name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+          }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override bool Equals(object other) {
+          return Equals(other as UserAction);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public bool Equals(UserAction other) {
+          if (ReferenceEquals(other, null)) {
+            return false;
+          }
+          if (ReferenceEquals(other, this)) {
+            return true;
+          }
+          if (ActionType != other.ActionType) return false;
+          if (Name != other.Name) return false;
+          return true;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override int GetHashCode() {
+          int hash = 1;
+          if (ActionType != 0) hash ^= ActionType.GetHashCode();
+          if (Name.Length != 0) hash ^= Name.GetHashCode();
+          return hash;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override string ToString() {
+          return pb::JsonFormatter.ToDiagnosticString(this);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void WriteTo(pb::CodedOutputStream output) {
+          if (ActionType != 0) {
+            output.WriteRawTag(8);
+            output.WriteEnum((int) ActionType);
+          }
+          if (Name.Length != 0) {
+            output.WriteRawTag(18);
+            output.WriteString(Name);
+          }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public int CalculateSize() {
+          int size = 0;
+          if (ActionType != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) ActionType);
+          }
+          if (Name.Length != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
+          }
+          return size;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void MergeFrom(UserAction other) {
+          if (other == null) {
+            return;
+          }
+          if (other.ActionType != 0) {
+            ActionType = other.ActionType;
+          }
+          if (other.Name.Length != 0) {
+            Name = other.Name;
+          }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void MergeFrom(pb::CodedInputStream input) {
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                input.SkipLastField();
+                break;
+              case 8: {
+                actionType_ = (global::Proto.MessageFromServer.Types.UserAction.Types.ActionType) input.ReadEnum();
+                break;
+              }
+              case 18: {
+                Name = input.ReadString();
+                break;
+              }
+            }
+          }
+        }
+
+        #region Nested types
+        /// <summary>Container for nested types declared in the UserAction message type.</summary>
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public static partial class Types {
+          public enum ActionType {
+            [pbr::OriginalName("JOIN")] Join = 0,
+            [pbr::OriginalName("LEAVE")] Leave = 1,
+          }
+
+        }
+        #endregion
+
+      }
+
+    }
+    #endregion
+
   }
 
-  public sealed partial class ChatFromServer : pb::IMessage<ChatFromServer> {
-    private static readonly pb::MessageParser<ChatFromServer> _parser = new pb::MessageParser<ChatFromServer>(() => new ChatFromServer());
+  /// <summary>
+  /// server's resonse to a join, giving info about the room
+  /// </summary>
+  public sealed partial class JoinResponse : pb::IMessage<JoinResponse> {
+    private static readonly pb::MessageParser<JoinResponse> _parser = new pb::MessageParser<JoinResponse>(() => new JoinResponse());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<ChatFromServer> Parser { get { return _parser; } }
+    public static pb::MessageParser<JoinResponse> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -172,82 +674,53 @@ namespace Proto {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ChatFromServer() {
+    public JoinResponse() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ChatFromServer(ChatFromServer other) : this() {
-      text_ = other.text_;
-      name_ = other.name_;
-      trip_ = other.trip_;
+    public JoinResponse(JoinResponse other) : this() {
+      onlineUsers_ = other.onlineUsers_.Clone();
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ChatFromServer Clone() {
-      return new ChatFromServer(this);
+    public JoinResponse Clone() {
+      return new JoinResponse(this);
     }
 
-    /// <summary>Field number for the "text" field.</summary>
-    public const int TextFieldNumber = 1;
-    private string text_ = "";
+    /// <summary>Field number for the "online_users" field.</summary>
+    public const int OnlineUsersFieldNumber = 1;
+    private static readonly pb::FieldCodec<string> _repeated_onlineUsers_codec
+        = pb::FieldCodec.ForString(10);
+    private readonly pbc::RepeatedField<string> onlineUsers_ = new pbc::RepeatedField<string>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Text {
-      get { return text_; }
-      set {
-        text_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "name" field.</summary>
-    public const int NameFieldNumber = 2;
-    private string name_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Name {
-      get { return name_; }
-      set {
-        name_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "trip" field.</summary>
-    public const int TripFieldNumber = 3;
-    private string trip_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string Trip {
-      get { return trip_; }
-      set {
-        trip_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
+    public pbc::RepeatedField<string> OnlineUsers {
+      get { return onlineUsers_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as ChatFromServer);
+      return Equals(other as JoinResponse);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(ChatFromServer other) {
+    public bool Equals(JoinResponse other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (Text != other.Text) return false;
-      if (Name != other.Name) return false;
-      if (Trip != other.Trip) return false;
+      if(!onlineUsers_.Equals(other.onlineUsers_)) return false;
       return true;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (Text.Length != 0) hash ^= Text.GetHashCode();
-      if (Name.Length != 0) hash ^= Name.GetHashCode();
-      if (Trip.Length != 0) hash ^= Trip.GetHashCode();
+      hash ^= onlineUsers_.GetHashCode();
       return hash;
     }
 
@@ -258,49 +731,22 @@ namespace Proto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (Text.Length != 0) {
-        output.WriteRawTag(10);
-        output.WriteString(Text);
-      }
-      if (Name.Length != 0) {
-        output.WriteRawTag(18);
-        output.WriteString(Name);
-      }
-      if (Trip.Length != 0) {
-        output.WriteRawTag(26);
-        output.WriteString(Trip);
-      }
+      onlineUsers_.WriteTo(output, _repeated_onlineUsers_codec);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (Text.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Text);
-      }
-      if (Name.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Name);
-      }
-      if (Trip.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(Trip);
-      }
+      size += onlineUsers_.CalculateSize(_repeated_onlineUsers_codec);
       return size;
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(ChatFromServer other) {
+    public void MergeFrom(JoinResponse other) {
       if (other == null) {
         return;
       }
-      if (other.Text.Length != 0) {
-        Text = other.Text;
-      }
-      if (other.Name.Length != 0) {
-        Name = other.Name;
-      }
-      if (other.Trip.Length != 0) {
-        Trip = other.Trip;
-      }
+      onlineUsers_.Add(other.onlineUsers_);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -312,15 +758,7 @@ namespace Proto {
             input.SkipLastField();
             break;
           case 10: {
-            Text = input.ReadString();
-            break;
-          }
-          case 18: {
-            Name = input.ReadString();
-            break;
-          }
-          case 26: {
-            Trip = input.ReadString();
+            onlineUsers_.AddEntriesFrom(input, _repeated_onlineUsers_codec);
             break;
           }
         }
@@ -329,6 +767,10 @@ namespace Proto {
 
   }
 
+  /// <summary>
+  /// client to server:
+  /// =================
+  /// </summary>
   public sealed partial class Join : pb::IMessage<Join> {
     private static readonly pb::MessageParser<Join> _parser = new pb::MessageParser<Join>(() => new Join());
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -499,6 +941,314 @@ namespace Proto {
         }
       }
     }
+
+  }
+
+  public sealed partial class MessageToServer : pb::IMessage<MessageToServer> {
+    private static readonly pb::MessageParser<MessageToServer> _parser = new pb::MessageParser<MessageToServer>(() => new MessageToServer());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<MessageToServer> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Proto.ChattoProtoReflection.Descriptor.MessageTypes[3]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public MessageToServer() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public MessageToServer(MessageToServer other) : this() {
+      time_ = other.time_;
+      switch (other.MessageCase) {
+        case MessageOneofCase.ChatToServer:
+          ChatToServer = other.ChatToServer.Clone();
+          break;
+      }
+
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public MessageToServer Clone() {
+      return new MessageToServer(this);
+    }
+
+    /// <summary>Field number for the "chat_to_server" field.</summary>
+    public const int ChatToServerFieldNumber = 1;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Proto.MessageToServer.Types.Chat ChatToServer {
+      get { return messageCase_ == MessageOneofCase.ChatToServer ? (global::Proto.MessageToServer.Types.Chat) message_ : null; }
+      set {
+        message_ = value;
+        messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.ChatToServer;
+      }
+    }
+
+    /// <summary>Field number for the "time" field.</summary>
+    public const int TimeFieldNumber = 15;
+    private ulong time_;
+    /// <summary>
+    /// time in ticks
+    /// </summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ulong Time {
+      get { return time_; }
+      set {
+        time_ = value;
+      }
+    }
+
+    private object message_;
+    /// <summary>Enum of possible cases for the "message" oneof.</summary>
+    public enum MessageOneofCase {
+      None = 0,
+      ChatToServer = 1,
+    }
+    private MessageOneofCase messageCase_ = MessageOneofCase.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public MessageOneofCase MessageCase {
+      get { return messageCase_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void ClearMessage() {
+      messageCase_ = MessageOneofCase.None;
+      message_ = null;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as MessageToServer);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(MessageToServer other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(ChatToServer, other.ChatToServer)) return false;
+      if (Time != other.Time) return false;
+      if (MessageCase != other.MessageCase) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (messageCase_ == MessageOneofCase.ChatToServer) hash ^= ChatToServer.GetHashCode();
+      if (Time != 0UL) hash ^= Time.GetHashCode();
+      hash ^= (int) messageCase_;
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (messageCase_ == MessageOneofCase.ChatToServer) {
+        output.WriteRawTag(10);
+        output.WriteMessage(ChatToServer);
+      }
+      if (Time != 0UL) {
+        output.WriteRawTag(120);
+        output.WriteUInt64(Time);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (messageCase_ == MessageOneofCase.ChatToServer) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ChatToServer);
+      }
+      if (Time != 0UL) {
+        size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Time);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(MessageToServer other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Time != 0UL) {
+        Time = other.Time;
+      }
+      switch (other.MessageCase) {
+        case MessageOneofCase.ChatToServer:
+          ChatToServer = other.ChatToServer;
+          break;
+      }
+
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            global::Proto.MessageToServer.Types.Chat subBuilder = new global::Proto.MessageToServer.Types.Chat();
+            if (messageCase_ == MessageOneofCase.ChatToServer) {
+              subBuilder.MergeFrom(ChatToServer);
+            }
+            input.ReadMessage(subBuilder);
+            ChatToServer = subBuilder;
+            break;
+          }
+          case 120: {
+            Time = input.ReadUInt64();
+            break;
+          }
+        }
+      }
+    }
+
+    #region Nested types
+    /// <summary>Container for nested types declared in the MessageToServer message type.</summary>
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static partial class Types {
+      /// <summary>
+      /// inner types
+      /// </summary>
+      public sealed partial class Chat : pb::IMessage<Chat> {
+        private static readonly pb::MessageParser<Chat> _parser = new pb::MessageParser<Chat>(() => new Chat());
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public static pb::MessageParser<Chat> Parser { get { return _parser; } }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public static pbr::MessageDescriptor Descriptor {
+          get { return global::Proto.MessageToServer.Descriptor.NestedTypes[0]; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        pbr::MessageDescriptor pb::IMessage.Descriptor {
+          get { return Descriptor; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public Chat() {
+          OnConstruction();
+        }
+
+        partial void OnConstruction();
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public Chat(Chat other) : this() {
+          text_ = other.text_;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public Chat Clone() {
+          return new Chat(this);
+        }
+
+        /// <summary>Field number for the "text" field.</summary>
+        public const int TextFieldNumber = 1;
+        private string text_ = "";
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public string Text {
+          get { return text_; }
+          set {
+            text_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+          }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override bool Equals(object other) {
+          return Equals(other as Chat);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public bool Equals(Chat other) {
+          if (ReferenceEquals(other, null)) {
+            return false;
+          }
+          if (ReferenceEquals(other, this)) {
+            return true;
+          }
+          if (Text != other.Text) return false;
+          return true;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override int GetHashCode() {
+          int hash = 1;
+          if (Text.Length != 0) hash ^= Text.GetHashCode();
+          return hash;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override string ToString() {
+          return pb::JsonFormatter.ToDiagnosticString(this);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void WriteTo(pb::CodedOutputStream output) {
+          if (Text.Length != 0) {
+            output.WriteRawTag(10);
+            output.WriteString(Text);
+          }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public int CalculateSize() {
+          int size = 0;
+          if (Text.Length != 0) {
+            size += 1 + pb::CodedOutputStream.ComputeStringSize(Text);
+          }
+          return size;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void MergeFrom(Chat other) {
+          if (other == null) {
+            return;
+          }
+          if (other.Text.Length != 0) {
+            Text = other.Text;
+          }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void MergeFrom(pb::CodedInputStream input) {
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                input.SkipLastField();
+                break;
+              case 10: {
+                Text = input.ReadString();
+                break;
+              }
+            }
+          }
+        }
+
+      }
+
+    }
+    #endregion
 
   }
 

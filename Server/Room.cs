@@ -20,7 +20,7 @@ namespace Server
             Users.Add(user);
         }
 
-        public void Send(ChatFromServer outgoingChat)
+        public void Send(MessageFromServer outgoingChat)
         {
             foreach (var user in Users)
             {
