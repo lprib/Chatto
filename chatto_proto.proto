@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package chatto;
+
+option csharp_namespace = "Proto";
+
+message ChatToServer {
+	string text = 1;
+}
+
+message ChatFromServer {
+	string text = 1;
+	string name = 2;
+	string trip = 3;
+}
+
+message Join {
+	string room = 1;
+	string name = 2;
+	string password = 3;
+}
