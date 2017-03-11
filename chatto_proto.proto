@@ -11,7 +11,8 @@ message MessageFromServer {
 	oneof message {
 		Chat chat_from_server = 1;
 		Error error = 2;
-		UserAction user_join_leave = 3;
+		UserAction user_action = 3;
+		string server_broadcast = 4;
 	}
 
 	//time in ticks
@@ -22,12 +23,6 @@ message MessageFromServer {
 		string text = 1;
 		string name = 2;
 		string trip = 3;
-	}
-
-	enum Error {
-		NAME_TAKEN = 0;
-		NAME_INVALID = 1;
-		RATE_LIMIT = 2;
 	}
 
 	//when another user does something
@@ -44,7 +39,22 @@ message MessageFromServer {
 
 //server's resonse to a join, giving info about the room
 message JoinResponse {
+	oneof response {
+		JoinResponseSuccessful success = 1;
+		Error error = 2;
+	}
+}
+
+//if the join is successful, the JoinResponse will contain one of these:
+message JoinResponseSuccessful {
 	repeated string online_users = 1;
+}
+
+//if the join resulted in an error, the JoinResponse will contain one of these:
+enum Error {
+		NAME_TAKEN = 0;
+		NAME_INVALID = 1;
+		RATE_LIMIT = 2;
 }
 
 //client to server:
@@ -59,6 +69,7 @@ message MessageToServer {
 	//data
 	oneof message {
 		Chat chat_to_server = 1;
+		ReadReciept read_reciept = 2;
 	}
 
 	//time in ticks
@@ -67,5 +78,9 @@ message MessageToServer {
 	//inner types
 	message Chat {
 		string text = 1;
+	}
+	
+	message ReadReciept {
+	
 	}
 }

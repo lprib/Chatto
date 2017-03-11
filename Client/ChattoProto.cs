@@ -22,36 +22,54 @@ namespace Proto {
     static ChattoProtoReflection() {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
-            "ChJjaGF0dG9fcHJvdG8ucHJvdG8SBmNoYXR0byLOAwoRTWVzc2FnZUZyb21T",
+            "ChJjaGF0dG9fcHJvdG8ucHJvdG8SBmNoYXR0byKZAwoRTWVzc2FnZUZyb21T",
             "ZXJ2ZXISOgoQY2hhdF9mcm9tX3NlcnZlchgBIAEoCzIeLmNoYXR0by5NZXNz",
-            "YWdlRnJvbVNlcnZlci5DaGF0SAASMAoFZXJyb3IYAiABKA4yHy5jaGF0dG8u",
-            "TWVzc2FnZUZyb21TZXJ2ZXIuRXJyb3JIABI/Cg91c2VyX2pvaW5fbGVhdmUY",
-            "AyABKAsyJC5jaGF0dG8uTWVzc2FnZUZyb21TZXJ2ZXIuVXNlckFjdGlvbkgA",
-            "EgwKBHRpbWUYDyABKAQaMAoEQ2hhdBIMCgR0ZXh0GAEgASgJEgwKBG5hbWUY",
-            "AiABKAkSDAoEdHJpcBgDIAEoCRqDAQoKVXNlckFjdGlvbhJECgthY3Rpb25f",
-            "dHlwZRgBIAEoDjIvLmNoYXR0by5NZXNzYWdlRnJvbVNlcnZlci5Vc2VyQWN0",
-            "aW9uLkFjdGlvblR5cGUSDAoEbmFtZRgCIAEoCSIhCgpBY3Rpb25UeXBlEggK",
-            "BEpPSU4QABIJCgVMRUFWRRABIjkKBUVycm9yEg4KCk5BTUVfVEFLRU4QABIQ",
-            "CgxOQU1FX0lOVkFMSUQQARIOCgpSQVRFX0xJTUlUEAJCCQoHbWVzc2FnZSIk",
-            "CgxKb2luUmVzcG9uc2USFAoMb25saW5lX3VzZXJzGAEgAygJIjQKBEpvaW4S",
-            "DAoEcm9vbRgBIAEoCRIMCgRuYW1lGAIgASgJEhAKCHBhc3N3b3JkGAMgASgJ",
-            "IngKD01lc3NhZ2VUb1NlcnZlchI2Cg5jaGF0X3RvX3NlcnZlchgBIAEoCzIc",
-            "LmNoYXR0by5NZXNzYWdlVG9TZXJ2ZXIuQ2hhdEgAEgwKBHRpbWUYDyABKAQa",
-            "FAoEQ2hhdBIMCgR0ZXh0GAEgASgJQgkKB21lc3NhZ2VCCKoCBVByb3RvYgZw",
-            "cm90bzM="));
+            "YWdlRnJvbVNlcnZlci5DaGF0SAASHgoFZXJyb3IYAiABKA4yDS5jaGF0dG8u",
+            "RXJyb3JIABI7Cgt1c2VyX2FjdGlvbhgDIAEoCzIkLmNoYXR0by5NZXNzYWdl",
+            "RnJvbVNlcnZlci5Vc2VyQWN0aW9uSAASGgoQc2VydmVyX2Jyb2FkY2FzdBgE",
+            "IAEoCUgAEgwKBHRpbWUYDyABKAQaMAoEQ2hhdBIMCgR0ZXh0GAEgASgJEgwK",
+            "BG5hbWUYAiABKAkSDAoEdHJpcBgDIAEoCRqDAQoKVXNlckFjdGlvbhJECgth",
+            "Y3Rpb25fdHlwZRgBIAEoDjIvLmNoYXR0by5NZXNzYWdlRnJvbVNlcnZlci5V",
+            "c2VyQWN0aW9uLkFjdGlvblR5cGUSDAoEbmFtZRgCIAEoCSIhCgpBY3Rpb25U",
+            "eXBlEggKBEpPSU4QABIJCgVMRUFWRRABQgkKB21lc3NhZ2UibQoMSm9pblJl",
+            "c3BvbnNlEjEKB3N1Y2Nlc3MYASABKAsyHi5jaGF0dG8uSm9pblJlc3BvbnNl",
+            "U3VjY2Vzc2Z1bEgAEh4KBWVycm9yGAIgASgOMg0uY2hhdHRvLkVycm9ySABC",
+            "CgoIcmVzcG9uc2UiLgoWSm9pblJlc3BvbnNlU3VjY2Vzc2Z1bBIUCgxvbmxp",
+            "bmVfdXNlcnMYASADKAkiNAoESm9pbhIMCgRyb29tGAEgASgJEgwKBG5hbWUY",
+            "AiABKAkSEAoIcGFzc3dvcmQYAyABKAkixAEKD01lc3NhZ2VUb1NlcnZlchI2",
+            "Cg5jaGF0X3RvX3NlcnZlchgBIAEoCzIcLmNoYXR0by5NZXNzYWdlVG9TZXJ2",
+            "ZXIuQ2hhdEgAEjsKDHJlYWRfcmVjaWVwdBgCIAEoCzIjLmNoYXR0by5NZXNz",
+            "YWdlVG9TZXJ2ZXIuUmVhZFJlY2llcHRIABIMCgR0aW1lGA8gASgEGhQKBENo",
+            "YXQSDAoEdGV4dBgBIAEoCRoNCgtSZWFkUmVjaWVwdEIJCgdtZXNzYWdlKjkK",
+            "BUVycm9yEg4KCk5BTUVfVEFLRU4QABIQCgxOQU1FX0lOVkFMSUQQARIOCgpS",
+            "QVRFX0xJTUlUEAJCCKoCBVByb3RvYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
-          new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.MessageFromServer), global::Proto.MessageFromServer.Parser, new[]{ "ChatFromServer", "Error", "UserJoinLeave", "Time" }, new[]{ "Message" }, new[]{ typeof(global::Proto.MessageFromServer.Types.Error) }, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Proto.MessageFromServer.Types.Chat), global::Proto.MessageFromServer.Types.Chat.Parser, new[]{ "Text", "Name", "Trip" }, null, null, null),
+          new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Proto.Error), }, new pbr::GeneratedClrTypeInfo[] {
+            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.MessageFromServer), global::Proto.MessageFromServer.Parser, new[]{ "ChatFromServer", "Error", "UserAction", "ServerBroadcast", "Time" }, new[]{ "Message" }, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Proto.MessageFromServer.Types.Chat), global::Proto.MessageFromServer.Types.Chat.Parser, new[]{ "Text", "Name", "Trip" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Proto.MessageFromServer.Types.UserAction), global::Proto.MessageFromServer.Types.UserAction.Parser, new[]{ "ActionType", "Name" }, null, new[]{ typeof(global::Proto.MessageFromServer.Types.UserAction.Types.ActionType) }, null)}),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.JoinResponse), global::Proto.JoinResponse.Parser, new[]{ "OnlineUsers" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.JoinResponse), global::Proto.JoinResponse.Parser, new[]{ "Success", "Error" }, new[]{ "Response" }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.JoinResponseSuccessful), global::Proto.JoinResponseSuccessful.Parser, new[]{ "OnlineUsers" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Proto.Join), global::Proto.Join.Parser, new[]{ "Room", "Name", "Password" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.MessageToServer), global::Proto.MessageToServer.Parser, new[]{ "ChatToServer", "Time" }, new[]{ "Message" }, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Proto.MessageToServer.Types.Chat), global::Proto.MessageToServer.Types.Chat.Parser, new[]{ "Text" }, null, null, null)})
+            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.MessageToServer), global::Proto.MessageToServer.Parser, new[]{ "ChatToServer", "ReadReciept", "Time" }, new[]{ "Message" }, null, new pbr::GeneratedClrTypeInfo[] { new pbr::GeneratedClrTypeInfo(typeof(global::Proto.MessageToServer.Types.Chat), global::Proto.MessageToServer.Types.Chat.Parser, new[]{ "Text" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Proto.MessageToServer.Types.ReadReciept), global::Proto.MessageToServer.Types.ReadReciept.Parser, null, null, null, null)})
           }));
     }
     #endregion
 
   }
+  #region Enums
+  /// <summary>
+  /// if the join resulted in an error, the JoinResponse will contain one of these:
+  /// </summary>
+  public enum Error {
+    [pbr::OriginalName("NAME_TAKEN")] NameTaken = 0,
+    [pbr::OriginalName("NAME_INVALID")] NameInvalid = 1,
+    [pbr::OriginalName("RATE_LIMIT")] RateLimit = 2,
+  }
+
+  #endregion
+
   #region Messages
   /// <summary>
   /// server to client:
@@ -89,8 +107,11 @@ namespace Proto {
         case MessageOneofCase.Error:
           Error = other.Error;
           break;
-        case MessageOneofCase.UserJoinLeave:
-          UserJoinLeave = other.UserJoinLeave.Clone();
+        case MessageOneofCase.UserAction:
+          UserAction = other.UserAction.Clone();
+          break;
+        case MessageOneofCase.ServerBroadcast:
+          ServerBroadcast = other.ServerBroadcast;
           break;
       }
 
@@ -115,22 +136,33 @@ namespace Proto {
     /// <summary>Field number for the "error" field.</summary>
     public const int ErrorFieldNumber = 2;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Proto.MessageFromServer.Types.Error Error {
-      get { return messageCase_ == MessageOneofCase.Error ? (global::Proto.MessageFromServer.Types.Error) message_ : 0; }
+    public global::Proto.Error Error {
+      get { return messageCase_ == MessageOneofCase.Error ? (global::Proto.Error) message_ : 0; }
       set {
         message_ = value;
         messageCase_ = MessageOneofCase.Error;
       }
     }
 
-    /// <summary>Field number for the "user_join_leave" field.</summary>
-    public const int UserJoinLeaveFieldNumber = 3;
+    /// <summary>Field number for the "user_action" field.</summary>
+    public const int UserActionFieldNumber = 3;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public global::Proto.MessageFromServer.Types.UserAction UserJoinLeave {
-      get { return messageCase_ == MessageOneofCase.UserJoinLeave ? (global::Proto.MessageFromServer.Types.UserAction) message_ : null; }
+    public global::Proto.MessageFromServer.Types.UserAction UserAction {
+      get { return messageCase_ == MessageOneofCase.UserAction ? (global::Proto.MessageFromServer.Types.UserAction) message_ : null; }
       set {
         message_ = value;
-        messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.UserJoinLeave;
+        messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.UserAction;
+      }
+    }
+
+    /// <summary>Field number for the "server_broadcast" field.</summary>
+    public const int ServerBroadcastFieldNumber = 4;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string ServerBroadcast {
+      get { return messageCase_ == MessageOneofCase.ServerBroadcast ? (string) message_ : ""; }
+      set {
+        message_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        messageCase_ = MessageOneofCase.ServerBroadcast;
       }
     }
 
@@ -154,7 +186,8 @@ namespace Proto {
       None = 0,
       ChatFromServer = 1,
       Error = 2,
-      UserJoinLeave = 3,
+      UserAction = 3,
+      ServerBroadcast = 4,
     }
     private MessageOneofCase messageCase_ = MessageOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -183,7 +216,8 @@ namespace Proto {
       }
       if (!object.Equals(ChatFromServer, other.ChatFromServer)) return false;
       if (Error != other.Error) return false;
-      if (!object.Equals(UserJoinLeave, other.UserJoinLeave)) return false;
+      if (!object.Equals(UserAction, other.UserAction)) return false;
+      if (ServerBroadcast != other.ServerBroadcast) return false;
       if (Time != other.Time) return false;
       if (MessageCase != other.MessageCase) return false;
       return true;
@@ -194,7 +228,8 @@ namespace Proto {
       int hash = 1;
       if (messageCase_ == MessageOneofCase.ChatFromServer) hash ^= ChatFromServer.GetHashCode();
       if (messageCase_ == MessageOneofCase.Error) hash ^= Error.GetHashCode();
-      if (messageCase_ == MessageOneofCase.UserJoinLeave) hash ^= UserJoinLeave.GetHashCode();
+      if (messageCase_ == MessageOneofCase.UserAction) hash ^= UserAction.GetHashCode();
+      if (messageCase_ == MessageOneofCase.ServerBroadcast) hash ^= ServerBroadcast.GetHashCode();
       if (Time != 0UL) hash ^= Time.GetHashCode();
       hash ^= (int) messageCase_;
       return hash;
@@ -215,9 +250,13 @@ namespace Proto {
         output.WriteRawTag(16);
         output.WriteEnum((int) Error);
       }
-      if (messageCase_ == MessageOneofCase.UserJoinLeave) {
+      if (messageCase_ == MessageOneofCase.UserAction) {
         output.WriteRawTag(26);
-        output.WriteMessage(UserJoinLeave);
+        output.WriteMessage(UserAction);
+      }
+      if (messageCase_ == MessageOneofCase.ServerBroadcast) {
+        output.WriteRawTag(34);
+        output.WriteString(ServerBroadcast);
       }
       if (Time != 0UL) {
         output.WriteRawTag(120);
@@ -234,8 +273,11 @@ namespace Proto {
       if (messageCase_ == MessageOneofCase.Error) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Error);
       }
-      if (messageCase_ == MessageOneofCase.UserJoinLeave) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(UserJoinLeave);
+      if (messageCase_ == MessageOneofCase.UserAction) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(UserAction);
+      }
+      if (messageCase_ == MessageOneofCase.ServerBroadcast) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(ServerBroadcast);
       }
       if (Time != 0UL) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Time);
@@ -258,8 +300,11 @@ namespace Proto {
         case MessageOneofCase.Error:
           Error = other.Error;
           break;
-        case MessageOneofCase.UserJoinLeave:
-          UserJoinLeave = other.UserJoinLeave;
+        case MessageOneofCase.UserAction:
+          UserAction = other.UserAction;
+          break;
+        case MessageOneofCase.ServerBroadcast:
+          ServerBroadcast = other.ServerBroadcast;
           break;
       }
 
@@ -289,11 +334,15 @@ namespace Proto {
           }
           case 26: {
             global::Proto.MessageFromServer.Types.UserAction subBuilder = new global::Proto.MessageFromServer.Types.UserAction();
-            if (messageCase_ == MessageOneofCase.UserJoinLeave) {
-              subBuilder.MergeFrom(UserJoinLeave);
+            if (messageCase_ == MessageOneofCase.UserAction) {
+              subBuilder.MergeFrom(UserAction);
             }
             input.ReadMessage(subBuilder);
-            UserJoinLeave = subBuilder;
+            UserAction = subBuilder;
+            break;
+          }
+          case 34: {
+            ServerBroadcast = input.ReadString();
             break;
           }
           case 120: {
@@ -308,12 +357,6 @@ namespace Proto {
     /// <summary>Container for nested types declared in the MessageFromServer message type.</summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static partial class Types {
-      public enum Error {
-        [pbr::OriginalName("NAME_TAKEN")] NameTaken = 0,
-        [pbr::OriginalName("NAME_INVALID")] NameInvalid = 1,
-        [pbr::OriginalName("RATE_LIMIT")] RateLimit = 2,
-      }
-
       /// <summary>
       /// inner types
       /// </summary>
@@ -682,12 +725,197 @@ namespace Proto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public JoinResponse(JoinResponse other) : this() {
-      onlineUsers_ = other.onlineUsers_.Clone();
+      switch (other.ResponseCase) {
+        case ResponseOneofCase.Success:
+          Success = other.Success.Clone();
+          break;
+        case ResponseOneofCase.Error:
+          Error = other.Error;
+          break;
+      }
+
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public JoinResponse Clone() {
       return new JoinResponse(this);
+    }
+
+    /// <summary>Field number for the "success" field.</summary>
+    public const int SuccessFieldNumber = 1;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Proto.JoinResponseSuccessful Success {
+      get { return responseCase_ == ResponseOneofCase.Success ? (global::Proto.JoinResponseSuccessful) response_ : null; }
+      set {
+        response_ = value;
+        responseCase_ = value == null ? ResponseOneofCase.None : ResponseOneofCase.Success;
+      }
+    }
+
+    /// <summary>Field number for the "error" field.</summary>
+    public const int ErrorFieldNumber = 2;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Proto.Error Error {
+      get { return responseCase_ == ResponseOneofCase.Error ? (global::Proto.Error) response_ : 0; }
+      set {
+        response_ = value;
+        responseCase_ = ResponseOneofCase.Error;
+      }
+    }
+
+    private object response_;
+    /// <summary>Enum of possible cases for the "response" oneof.</summary>
+    public enum ResponseOneofCase {
+      None = 0,
+      Success = 1,
+      Error = 2,
+    }
+    private ResponseOneofCase responseCase_ = ResponseOneofCase.None;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public ResponseOneofCase ResponseCase {
+      get { return responseCase_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void ClearResponse() {
+      responseCase_ = ResponseOneofCase.None;
+      response_ = null;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as JoinResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(JoinResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!object.Equals(Success, other.Success)) return false;
+      if (Error != other.Error) return false;
+      if (ResponseCase != other.ResponseCase) return false;
+      return true;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (responseCase_ == ResponseOneofCase.Success) hash ^= Success.GetHashCode();
+      if (responseCase_ == ResponseOneofCase.Error) hash ^= Error.GetHashCode();
+      hash ^= (int) responseCase_;
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (responseCase_ == ResponseOneofCase.Success) {
+        output.WriteRawTag(10);
+        output.WriteMessage(Success);
+      }
+      if (responseCase_ == ResponseOneofCase.Error) {
+        output.WriteRawTag(16);
+        output.WriteEnum((int) Error);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (responseCase_ == ResponseOneofCase.Success) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Success);
+      }
+      if (responseCase_ == ResponseOneofCase.Error) {
+        size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Error);
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(JoinResponse other) {
+      if (other == null) {
+        return;
+      }
+      switch (other.ResponseCase) {
+        case ResponseOneofCase.Success:
+          Success = other.Success;
+          break;
+        case ResponseOneofCase.Error:
+          Error = other.Error;
+          break;
+      }
+
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            input.SkipLastField();
+            break;
+          case 10: {
+            global::Proto.JoinResponseSuccessful subBuilder = new global::Proto.JoinResponseSuccessful();
+            if (responseCase_ == ResponseOneofCase.Success) {
+              subBuilder.MergeFrom(Success);
+            }
+            input.ReadMessage(subBuilder);
+            Success = subBuilder;
+            break;
+          }
+          case 16: {
+            response_ = input.ReadEnum();
+            responseCase_ = ResponseOneofCase.Error;
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
+  /// <summary>
+  /// if the join is successful, the JoinResponse will contain one of these:
+  /// </summary>
+  public sealed partial class JoinResponseSuccessful : pb::IMessage<JoinResponseSuccessful> {
+    private static readonly pb::MessageParser<JoinResponseSuccessful> _parser = new pb::MessageParser<JoinResponseSuccessful>(() => new JoinResponseSuccessful());
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<JoinResponseSuccessful> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Proto.ChattoProtoReflection.Descriptor.MessageTypes[2]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public JoinResponseSuccessful() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public JoinResponseSuccessful(JoinResponseSuccessful other) : this() {
+      onlineUsers_ = other.onlineUsers_.Clone();
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public JoinResponseSuccessful Clone() {
+      return new JoinResponseSuccessful(this);
     }
 
     /// <summary>Field number for the "online_users" field.</summary>
@@ -702,11 +930,11 @@ namespace Proto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as JoinResponse);
+      return Equals(other as JoinResponseSuccessful);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(JoinResponse other) {
+    public bool Equals(JoinResponseSuccessful other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -742,7 +970,7 @@ namespace Proto {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(JoinResponse other) {
+    public void MergeFrom(JoinResponseSuccessful other) {
       if (other == null) {
         return;
       }
@@ -778,7 +1006,7 @@ namespace Proto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Proto.ChattoProtoReflection.Descriptor.MessageTypes[2]; }
+      get { return global::Proto.ChattoProtoReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -951,7 +1179,7 @@ namespace Proto {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Proto.ChattoProtoReflection.Descriptor.MessageTypes[3]; }
+      get { return global::Proto.ChattoProtoReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -973,6 +1201,9 @@ namespace Proto {
         case MessageOneofCase.ChatToServer:
           ChatToServer = other.ChatToServer.Clone();
           break;
+        case MessageOneofCase.ReadReciept:
+          ReadReciept = other.ReadReciept.Clone();
+          break;
       }
 
     }
@@ -990,6 +1221,17 @@ namespace Proto {
       set {
         message_ = value;
         messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.ChatToServer;
+      }
+    }
+
+    /// <summary>Field number for the "read_reciept" field.</summary>
+    public const int ReadRecieptFieldNumber = 2;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public global::Proto.MessageToServer.Types.ReadReciept ReadReciept {
+      get { return messageCase_ == MessageOneofCase.ReadReciept ? (global::Proto.MessageToServer.Types.ReadReciept) message_ : null; }
+      set {
+        message_ = value;
+        messageCase_ = value == null ? MessageOneofCase.None : MessageOneofCase.ReadReciept;
       }
     }
 
@@ -1012,6 +1254,7 @@ namespace Proto {
     public enum MessageOneofCase {
       None = 0,
       ChatToServer = 1,
+      ReadReciept = 2,
     }
     private MessageOneofCase messageCase_ = MessageOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1039,6 +1282,7 @@ namespace Proto {
         return true;
       }
       if (!object.Equals(ChatToServer, other.ChatToServer)) return false;
+      if (!object.Equals(ReadReciept, other.ReadReciept)) return false;
       if (Time != other.Time) return false;
       if (MessageCase != other.MessageCase) return false;
       return true;
@@ -1048,6 +1292,7 @@ namespace Proto {
     public override int GetHashCode() {
       int hash = 1;
       if (messageCase_ == MessageOneofCase.ChatToServer) hash ^= ChatToServer.GetHashCode();
+      if (messageCase_ == MessageOneofCase.ReadReciept) hash ^= ReadReciept.GetHashCode();
       if (Time != 0UL) hash ^= Time.GetHashCode();
       hash ^= (int) messageCase_;
       return hash;
@@ -1064,6 +1309,10 @@ namespace Proto {
         output.WriteRawTag(10);
         output.WriteMessage(ChatToServer);
       }
+      if (messageCase_ == MessageOneofCase.ReadReciept) {
+        output.WriteRawTag(18);
+        output.WriteMessage(ReadReciept);
+      }
       if (Time != 0UL) {
         output.WriteRawTag(120);
         output.WriteUInt64(Time);
@@ -1075,6 +1324,9 @@ namespace Proto {
       int size = 0;
       if (messageCase_ == MessageOneofCase.ChatToServer) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(ChatToServer);
+      }
+      if (messageCase_ == MessageOneofCase.ReadReciept) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(ReadReciept);
       }
       if (Time != 0UL) {
         size += 1 + pb::CodedOutputStream.ComputeUInt64Size(Time);
@@ -1093,6 +1345,9 @@ namespace Proto {
       switch (other.MessageCase) {
         case MessageOneofCase.ChatToServer:
           ChatToServer = other.ChatToServer;
+          break;
+        case MessageOneofCase.ReadReciept:
+          ReadReciept = other.ReadReciept;
           break;
       }
 
@@ -1113,6 +1368,15 @@ namespace Proto {
             }
             input.ReadMessage(subBuilder);
             ChatToServer = subBuilder;
+            break;
+          }
+          case 18: {
+            global::Proto.MessageToServer.Types.ReadReciept subBuilder = new global::Proto.MessageToServer.Types.ReadReciept();
+            if (messageCase_ == MessageOneofCase.ReadReciept) {
+              subBuilder.MergeFrom(ReadReciept);
+            }
+            input.ReadMessage(subBuilder);
+            ReadReciept = subBuilder;
             break;
           }
           case 120: {
@@ -1241,6 +1505,95 @@ namespace Proto {
                 Text = input.ReadString();
                 break;
               }
+            }
+          }
+        }
+
+      }
+
+      public sealed partial class ReadReciept : pb::IMessage<ReadReciept> {
+        private static readonly pb::MessageParser<ReadReciept> _parser = new pb::MessageParser<ReadReciept>(() => new ReadReciept());
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public static pb::MessageParser<ReadReciept> Parser { get { return _parser; } }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public static pbr::MessageDescriptor Descriptor {
+          get { return global::Proto.MessageToServer.Descriptor.NestedTypes[1]; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        pbr::MessageDescriptor pb::IMessage.Descriptor {
+          get { return Descriptor; }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public ReadReciept() {
+          OnConstruction();
+        }
+
+        partial void OnConstruction();
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public ReadReciept(ReadReciept other) : this() {
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public ReadReciept Clone() {
+          return new ReadReciept(this);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override bool Equals(object other) {
+          return Equals(other as ReadReciept);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public bool Equals(ReadReciept other) {
+          if (ReferenceEquals(other, null)) {
+            return false;
+          }
+          if (ReferenceEquals(other, this)) {
+            return true;
+          }
+          return true;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override int GetHashCode() {
+          int hash = 1;
+          return hash;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public override string ToString() {
+          return pb::JsonFormatter.ToDiagnosticString(this);
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void WriteTo(pb::CodedOutputStream output) {
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public int CalculateSize() {
+          int size = 0;
+          return size;
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void MergeFrom(ReadReciept other) {
+          if (other == null) {
+            return;
+          }
+        }
+
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+        public void MergeFrom(pb::CodedInputStream input) {
+          uint tag;
+          while ((tag = input.ReadTag()) != 0) {
+            switch(tag) {
+              default:
+                input.SkipLastField();
+                break;
             }
           }
         }

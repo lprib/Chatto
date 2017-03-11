@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Fleck;
+using Google.Protobuf;
 using Proto;
 using static Proto.MessageFromServer.Types.UserAction.Types;
 using Join = Proto.Join;
@@ -41,7 +42,7 @@ namespace Server
         {
             //broadcast to room that the user left
             var userLeaveBroadcast = new MessageFromServer();
-            userLeaveBroadcast.UserJoinLeave = new MessageFromServer.Types.UserAction
+            userLeaveBroadcast.UserAction = new MessageFromServer.Types.UserAction
             {
                 Name = joinedUsers[connection].Name,
                 ActionType = ActionType.Leave
@@ -86,7 +87,7 @@ namespace Server
 
                 //send a join message to the room
                 var userJoinBroadcast = new MessageFromServer();
-                userJoinBroadcast.UserJoinLeave = new MessageFromServer.Types.UserAction
+                userJoinBroadcast.UserAction = new MessageFromServer.Types.UserAction
                 {
                     Name = user.Name,
                     ActionType = ActionType.Join
@@ -95,11 +96,12 @@ namespace Server
 
                 room.AddUser(user);
 
-                //send a response back to the new client
-                var joinResponse = new JoinResponse();
-                joinResponse.OnlineUsers.Add(room.Users.Select(roomUser => roomUser.Name).ToList());
+                //send a success response back to the new client
+                var joinResponse = new JoinResponse {Success = new JoinResponseSuccessful()};
+                joinResponse.Success.OnlineUsers.Add(room.Users.Select(roomUser => roomUser.Name).ToList());
+                connection.Send(joinResponse.ToByteArray());
 
-                Log.LogInfo($"{user.Name} @{user.Room.Name} {user.Trip} joined");
+                Log.LogInfo($"{user.Name} @ {user.Room.Name}  {user.Trip} joined");
             }
         }
 
