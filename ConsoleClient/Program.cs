@@ -4,13 +4,13 @@ using Google.Protobuf;
 using Proto;
 using WebSocketSharp;
 
-namespace Client
+namespace ConsoleClient
 {
-    class Program
+    internal class Program
     {
         private static WebSocket ws;
 
-        static void Main()
+        internal static void Main()
         {
             ws = new WebSocket("ws://localhost:8080");
             ws.OnError += (sender, args) =>
@@ -28,7 +28,6 @@ namespace Client
                 ws.Send(join.ToByteArray());
             };
 
-            //TODO handle joinResponse messages
             ws.OnMessage += HandleJoinResponse;
 
             ws.Connect();
@@ -37,10 +36,7 @@ namespace Client
             {
                 var chat = new MessageToServer()
                 {
-                    ChatToServer = new MessageToServer.Types.Chat
-                    {
-                        Text = Console.ReadLine(),
-                    }
+                    ChatToServer = new MessageToServer.Types.Chat {Text = Console.ReadLine(),}
                 };
                 ws.Send(chat.ToByteArray());
             }
