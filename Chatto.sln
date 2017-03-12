@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1682D881-5AED-4D66-9282-2FEFE6555F9A}"
 	ProjectSection(SolutionItems) = preProject
 		chatto_proto.proto = chatto_proto.proto
+		Client\chatto_proto_pb.js = Client\chatto_proto_pb.js
 		Client\client.js = Client\client.js
 		Client\index.html = Client\index.html
 		README.md = README.md

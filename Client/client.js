@@ -44,20 +44,20 @@ protobuf.load("https://raw.githubusercontent.com/JaxForReal/Chatto/master/chatto
         }
 
         //todo this is not triggering
-        $("#message-input").onkeydown = function(e) {
+        $("#message-input").keydown(function(e) {
             if (e.keyCode === 13) {
                 console.log("trig");
-                var message = MessageToServer.encode({
+                var chatMessage = MessageToServer.encode({
                     chat_to_server: MessageToServer.nested.Chat.encode({
-                        text: $("message-input").val()
-                    }).finish(),
+                        text: $("#message-input").val()
+                    }),
                     time: 0
                 }).finish();
 
-                webSocket.send(message);
+                webSocket.send(chatMessage);
                 $("#message-input").val("");
             }
-        };
+        });
     });
 
 //converts a blob to arrayBuffer
