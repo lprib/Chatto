@@ -2,6 +2,7 @@
 using Fleck;
 using Google.Protobuf;
 using Proto;
+using static Proto.MessageFromServer.Types.UserAction.Types;
 
 namespace Server
 {
@@ -15,9 +16,32 @@ namespace Server
             Name = name;
         }
 
-        public void AddUser(User user)
+        public void AddUser(User newUser)
         {
-            Users.Add(user);
+            //send a join message to the room
+            var userJoinBroadcast = new MessageFromServer();
+            userJoinBroadcast.UserAction = new MessageFromServer.Types.UserAction
+            {
+                Name = newUser.Name,
+                ActionType = ActionType.Join
+            };
+            Send(userJoinBroadcast);
+
+            Users.Add(newUser);
+        }
+
+        public void RemoveUser(User leavingUser)
+        {
+            Users.Remove(leavingUser);
+            //broadcast to room that the user left
+            var userLeaveBroadcast = new MessageFromServer();
+            userLeaveBroadcast.UserAction = new MessageFromServer.Types.UserAction
+            {
+                Name = leavingUser.Name,
+                ActionType = ActionType.Leave
+            };
+
+            Send(userLeaveBroadcast);
         }
 
         public void Send(MessageFromServer outgoingChat)

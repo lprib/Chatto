@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Fleck;
 using Google.Protobuf;
@@ -38,17 +39,12 @@ namespace Server
         {
         }
 
-        public void OnSocketClose(IWebSocketConnection connection)
+        public void OnSocketClose(IWebSocketConnection leavingConnection)
         {
-            //broadcast to room that the user left
-            var userLeaveBroadcast = new MessageFromServer();
-            userLeaveBroadcast.UserAction = new MessageFromServer.Types.UserAction
-            {
-                Name = joinedUsers[connection].Name,
-                ActionType = ActionType.Leave
-            };
+            if (!joinedUsers.ContainsKey(leavingConnection)) return;
 
-            joinedUsers[connection].Room.Send(userLeaveBroadcast);
+            var leavingUser = joinedUsers[leavingConnection];
+            leavingUser.Room.RemoveUser(leavingUser);
         }
 
         public void OnSocketMessage(IWebSocketConnection connection, byte[] data)
@@ -82,26 +78,17 @@ namespace Server
 
                 //the room the the new user is joining
                 var room = GetRoom(joinMessage.Room);
-                var user = new User(connection, joinMessage.Name, joinMessage.Password, GetRoom(joinMessage.Room));
-                joinedUsers.Add(connection, user);
-
-                //send a join message to the room
-                var userJoinBroadcast = new MessageFromServer();
-                userJoinBroadcast.UserAction = new MessageFromServer.Types.UserAction
-                {
-                    Name = user.Name,
-                    ActionType = ActionType.Join
-                };
-                room.Send(userJoinBroadcast);
-
-                room.AddUser(user);
+                var newUser = new User(connection, joinMessage.Name, joinMessage.Password, GetRoom(joinMessage.Room));
+                joinedUsers.Add(connection, newUser);
+                room.AddUser(newUser);
 
                 //send a success response back to the new client
                 var joinResponse = new JoinResponse {Success = new JoinResponseSuccessful()};
                 joinResponse.Success.OnlineUsers.Add(room.Users.Select(roomUser => roomUser.Name).ToList());
+                Console.WriteLine("size: " + joinResponse.CalculateSize());
                 connection.Send(joinResponse.ToByteArray());
 
-                Log.LogInfo($"{user.Name} @ {user.Room.Name}  {user.Trip} joined");
+                Log.LogInfo($"{newUser.Name} @ {newUser.Room.Name}  {newUser.Trip} joined");
             }
         }
 
