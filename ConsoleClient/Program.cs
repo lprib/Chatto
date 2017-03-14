@@ -36,9 +36,15 @@ namespace ConsoleClient
             {
                 var chat = new MessageToServer()
                 {
-                    ChatToServer = new MessageToServer.Types.Chat {Text = Console.ReadLine(),}
+                    ChatToServer = new MessageToServer.Types.Chat {Text = Console.ReadLine(),},
+                    Time = 0,
                 };
                 ws.Send(chat.ToByteArray());
+                foreach (var b in chat.ToByteArray())
+                {
+                    Console.Write(b.ToString() + ", ");
+                }
+                Console.WriteLine();
             }
         }
 

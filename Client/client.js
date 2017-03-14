@@ -1,77 +1,48 @@
-protobuf.load("https://raw.githubusercontent.com/JaxForReal/Chatto/master/chatto_proto.proto",
-    function(err, root) {
-        if (err) {
-            throw err;
-        }
+$(document).ready(function() {
+    $("#join-form").submit(function (e) {
+        //prevent GET in url
+        e.preventDefault();
+        $("#join-form").hide();
+        doConnect();
+        return false;
+    });
+});
 
-        var MessageFromServer = root.lookup("chatto.MessageFromServer");
-        var MessageToServer = root.lookup("chatto.MessageToServer");
-        var JoinResponse = root.lookup("chatto.JoinResponse");
-
-        var webSocket = new WebSocket("ws://localhost:8080");
-
-        webSocket.onopen = function() {
-            //console.log("websocket opened");
-            var Join = root.lookup("chatto.Join");
-            var join = Join.encode({
-                name: window.prompt("name"),
-                password: window.prompt("pass"),
-                room: window.prompt("room")
-            }).finish();
-
-            webSocket.send(join);
-        }
-
-        webSocket.onmessage = function(message) {
-            toUint8Array(message.data,
-                function(data) {
-                    var response = JoinResponse.decode(data);
-                    if (typeof response.success !== "undefined") {
-                        var onlineUsers = "Online users: ";
-                        response.success.onlineUsers.forEach(function(user) { onlineUsers += user + ", " });
-                        addMessage(onlineUsers);
-                    }
-                });
-            webSocket.onmessage = messageRecieved;
-        }
-
-        function messageRecieved(message) {
-            toUint8Array(message.data,
-                function(data) {
-                    message = MessageFromServer.decode(data);
-                    addMessage(JSON.stringify(message));
-                });
-        }
-
-        //todo this is not triggering
-        $("#message-input").keydown(function(e) {
-            if (e.keyCode === 13) {
-                console.log("trig");
-                var chatMessage = MessageToServer.encode({
-                    chat_to_server: MessageToServer.nested.Chat.encode({
-                        text: $("#message-input").val()
-                    }),
-                    time: 0
-                }).finish();
-
-                webSocket.send(chatMessage);
-                $("#message-input").val("");
-            }
-        });
+function doConnect() {
+    var connection = new ChattoConnection({
+        name: $("#join-form input[name=name]").val(),
+        password: $("#join-form input[name=password]").val(),
+        room: $("#join-form input[name=room]").val(),
     });
 
-//converts a blob to arrayBuffer
-//result is passed to callback
-function toUint8Array(blob, callback) {
-    var arrayBuffer;
-    var fileReader = new FileReader();
-    fileReader.onload = function() {
-        arrayBuffer = this.result;
-        callback(new Uint8Array(arrayBuffer));
-    };
-    fileReader.readAsArrayBuffer(blob);
-}
+    connection.onOpen = function (joinResponse) {
+        if (typeof joinResponse.success !== "undefined") {
+            var online = "Online users: ";
+            joinResponse.success.onlineUsers.forEach(function (user) {
+                online += user + ", ";
+            });
+            addMessage("Room: " + $("#join-form input[name=room]").val());
+            addMessage(online);
+        }
+    }
 
-function addMessage(message) {
-    $("#messages").append("<p>" + message + "</p>");
+    connection.onMessage = function (message) {
+        if (typeof message.chatFromServer !== "undefined") {
+            var chat = message.chatFromServer;
+            addMessage(chat.name + " " + chat.trip + ": " + chat.text);
+        }
+    }
+
+    function addMessage(text) {
+        $("#messages").append("<p>" + text + "</p>");
+    }
+
+    $("#message-input").keydown(function (e) {
+        console.log("asd");
+        if (e.keyCode === 13 && !e.shiftKey) {
+            e.preventDefault();
+            connection.sendChat($("#message-input").val());
+            $("#message-input").val("");
+        }
+    });
 }

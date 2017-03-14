@@ -4,7 +4,6 @@ using System.Linq;
 using Fleck;
 using Google.Protobuf;
 using Proto;
-using static Proto.MessageFromServer.Types.UserAction.Types;
 using Join = Proto.Join;
 
 namespace Server

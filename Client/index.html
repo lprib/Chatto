@@ -4,18 +4,27 @@
     <title>Chatto</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="http://cdn.rawgit.com/dcodeIO/protobuf.js/6.6.0/dist/protobuf.js"></script>
+    <script src="https://cdn.rawgit.com/dcodeIO/protobuf.js/6.6.0/dist/protobuf.js"></script>
+    <script src="api.js"></script>
     <script src="client.js"></script>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css"/>
 </head>
 
 <body>
-    <div id="messages"></div>
-    <footer>
-        <!-- <form id="message-input-form">-->
-        <input type="text" id="message-input" />
-        <!-- </form>-->
-    </footer>
+
+<form id="join-form">
+    Room <input type="text" name="room" required/> <br/>
+    Name <input type="text" name="name" required/> <br />
+    Password <input type="password" name="password" required/> <br />
+    <input type="submit" value="Join"/>
+</form>
+<div id="messages"></div>
+<footer>
+    <!-- <form id="message-input-form">-->
+    <input type="text" autocomplete="false" id="message-input"/>
+    <!-- </form>-->
+</footer>
+
 </body>
 
 </html>
