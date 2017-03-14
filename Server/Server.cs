@@ -19,7 +19,7 @@ namespace Server
         public Server()
         {
             FleckLog.Level = LogLevel.Debug;
-            server = new WebSocketServer("ws://0.0.0.0:8080");
+            server = new WebSocketServer("ws://0.0.0.0:6060");
             //server.Certificate = new X509Certificate2();
         }
 

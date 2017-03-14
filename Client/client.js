@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
     $("#join-form").submit(function (e) {
         //prevent GET in url
         e.preventDefault();

@@ -16,7 +16,7 @@ function ChattoConnection(joinData) {
         var Join = root.lookup("chatto.Join");
         var Chat = MessageToServer.Chat;
 
-        var webSocket = new WebSocket("ws://localhost:8080");
+        var webSocket = new WebSocket("ws:/" + document.domain + "6060");
 
         webSocket.onopen = function () {
             //console.log("websocket opened");
